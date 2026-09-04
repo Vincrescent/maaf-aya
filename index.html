@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maafin Aku 💕</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #E11D48;
+      --color-on-primary: #FFFFFF;
+      --color-secondary: #FB7185;
+      --color-bg: #FFF1F2;
+      --color-fg: #881337;
+      --color-card: #FFFFFF;
+      --color-muted: #FECDD3;
+      --color-ring: #E11D48;
+      --font-heading: 'Fredoka', sans-serif;
+      --font-body: 'Nunito', sans-serif;
+      --space-xs: 8px;
+      --space-sm: 12px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --radius: 24px;
+      --transition: 200ms ease;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(160deg, var(--color-bg) 0%, #FFE4E6 40%, var(--color-muted) 100%);
+      font-family: var(--font-body);
+      color: var(--color-fg);
+      overflow-x: hidden;
+      padding: var(--space-md);
+    }
+
+    .card {
+      background: var(--color-card);
+      border-radius: var(--radius);
+      padding: var(--space-2xl) var(--space-xl);
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 40px rgba(225, 29, 72, 0.1), 0 1px 3px rgba(225, 29, 72, 0.06);
+      animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      position: relative;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .emoji-hero {
+      font-size: 72px;
+      line-height: 1;
+      margin-bottom: var(--space-md);
+      animation: gentleBounce 2.5s ease-in-out infinite;
+    }
+
+    @keyframes gentleBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 28px;
+      color: var(--color-primary);
+      margin-bottom: var(--space-sm);
+      line-height: 1.3;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #9F1239;
+      margin-bottom: var(--space-lg);
+    }
+
+    .btn-row {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      position: relative;
+      min-height: 56px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 32px;
+      min-height: 48px;
+      min-width: 48px;
+      background: var(--color-primary);
+      color: var(--color-on-primary);
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+      -webkit-tap-highlight-color: transparent;
+      outline-offset: 3px;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(225, 29, 72, 0.3);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--color-ring);
+      outline-offset: 3px;
+    }
+
+    .btn:active {
+      transform: translateY(0) scale(0.97);
+    }
+
+    .btn-no {
+      background: #D1D5DB;
+      color: #374151;
+      position: absolute;
+      transition: transform 0.15s ease, opacity 0.3s ease, font-size 0.3s ease, padding 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .btn-no:hover { box-shadow: none; }
+
+    .hidden { display: none !important; }
+
+    /* Floating particles */
+    .particles {
+      position: fixed; inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      font-size: 20px;
+      opacity: 0;
+      animation: floatUp 7s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) rotate(0deg) scale(0.8); opacity: 0; }
+      8% { opacity: 0.6; }
+      85% { opacity: 0.6; }
+      100% { transform: translateY(-10vh) rotate(360deg) scale(1); opacity: 0; }
+    }
+
+    /* Shake for no button */
+    .shake { animation: shake 0.4s ease; }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0) rotate(0); }
+      25% { transform: translateX(-8px) rotate(-4deg); }
+      50% { transform: translateX(8px) rotate(4deg); }
+      75% { transform: translateX(-4px) rotate(-2deg); }
+    }
+
+    .no-feedback {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-top: var(--space-md);
+      min-height: 24px;
+      transition: opacity var(--transition);
+    }
+
+    /* Music visualizer */
+    .music-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-md);
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .music-info.visible { opacity: 1; }
+
+    .music-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    .bars {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 18px;
+    }
+
+    .bars span {
+      display: block;
+      width: 3px;
+      border-radius: 2px;
+      background: var(--color-secondary);
+      animation: barPulse 0.9s ease-in-out infinite;
+    }
+
+    .bars span:nth-child(1) { height: 6px; animation-delay: 0s; }
+    .bars span:nth-child(2) { height: 14px; animation-delay: 0.12s; }
+    .bars span:nth-child(3) { height: 9px; animation-delay: 0.24s; }
+    .bars span:nth-child(4) { height: 12px; animation-delay: 0.36s; }
+    .bars span:nth-child(5) { height: 7px; animation-delay: 0.48s; }
+
+    @keyframes barPulse {
+      0%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(0.35); }
+    }
+
+    /* Decorative stickers */
+    .sticker {
+      position: absolute;
+      font-size: 32px;
+      pointer-events: none;
+      animation: wiggle 3s ease-in-out infinite;
+    }
+
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-4deg) scale(1); }
+      50% { transform: rotate(4deg) scale(1.05); }
+    }
+
+    .forgiven-extra {
+      margin-top: var(--space-md);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-primary);
+      animation: fadeUp 0.8s ease 0.4s both;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Small screens */
+    @media (max-width: 374px) {
+      .card { padding: var(--space-xl) var(--space-md); }
+      h1 { font-size: 24px; }
+      .emoji-hero { font-size: 56px; }
+      .btn { padding: 12px 24px; font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="particles" id="particles"></div>
+
+  <!-- PAGE 1: Intro -->
+  <div class="card" id="mainCard">
+    <div class="emoji-hero">🐻💌</div>
+    <h1>Hai Kamu...</h1>
+    <p>Ada sesuatu yang mau aku bilang.<br>Jangan pergi dulu yaa~ klik di bawah!</p>
+    <button class="btn" onclick="showApology()">Buka ya~ 💕</button>
+  </div>
+
+  <!-- PAGE 2: Apology -->
+  <div class="card hidden" id="apologyCard">
+    <div class="sticker" style="top:-16px;right:-8px;">🌙</div>
+    <div class="sticker" style="bottom:-12px;left:-6px;animation-delay:1.2s;">✨</div>
+
+    <div class="music-info" id="musicInfo">
+      <span class="music-label">🎵 Alex Crichton – Merry Christmas, I Miss You</span>
+      <div class="bars"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+
+    <div class="emoji-hero">🥺👉👈</div>
+    <h1>Maafin Aku Ya...</h1>
+    <p>
+      Aku tahu aku salah banget udah ninggalin kamu 😢<br><br>
+      Harusnya aku nggak pergi. Harusnya aku<br>
+      tetep di sini, nemenin kamu, peluk kamu 🫂<br><br>
+      Tiap hari aku nyesel. Serius! Nggak bohong!<br>
+      Kamu tuh the best, dan aku dodol<br>
+      baru sadar sekarang 😭💕<br><br>
+      Kasih aku satu kesempatan lagi ya?<br>
+      Aku janji nggak akan ngulangin lagi! 🤞✨
+    </p>
+
+    <div class="btn-row">
+      <button class="btn" onclick="showForgiven()">Maafin 💖</button>
+      <button class="btn btn-no" id="noBtn" onmouseenter="moveNoBtn()" ontouchstart="moveNoBtn()" onclick="clickNo()">Nggak 😤</button>
+    </div>
+    <div class="no-feedback" id="noFeedback"></div>
+  </div>
+
+  <!-- PAGE 3: Forgiven -->
+  <div class="card hidden" id="forgivenCard">
+    <div class="sticker" style="top:-16px;left:-8px;">💌</div>
+    <div class="sticker" style="bottom:-12px;right:-6px;animation-delay:1.5s;">💕</div>
+
+    <div class="emoji-hero">🥰✨</div>
+    <h1>YAYYY MAKASIH SAYANG!!</h1>
+    <p>
+      Aku sayang bangeeet sama kamu~<br>
+      Nggak akan aku sia-siain lagi deh! 🤗💗<br><br>
+      I miss you so much 🥹🎶<br>
+      Kamu segalanya buat aku ✨
+    </p>
+    <div class="forgiven-extra">kamu adalah alasan aku ingin jadi lebih baik 💕</div>
+  </div>
+
+  <audio id="bgMusic" loop preload="auto">
+    <source src="https://www.soundhelix.com/data/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Spawn floating particles
+    const particleEmojis = ['♥', '✦', '♡', '˚', '✧'];
+    const particlesEl = document.getElementById('particles');
+    for (let i = 0; i < 20; i++) {
+      const el = document.createElement('div');
+      el.className = 'particle';
+      el.textContent = particleEmojis[Math.floor(Math.random() * particleEmojis.length)];
+      el.style.left = Math.random() * 100 + '%';
+      el.style.animationDelay = Math.random() * 7 + 's';
+      el.style.fontSize = (14 + Math.random() * 16) + 'px';
+      el.style.color = `rgba(225, 29, 72, ${0.1 + Math.random() * 0.15})`;
+      particlesEl.appendChild(el);
+    }
+
+    let noClicks = 0;
+    const noTexts = [
+      "Hiii jangan gitu dong~ 🥺",
+      "Aku beneran nyesel tauu 😢",
+      "Ninggalin kamu itu kesalahan terbesar aku 😭",
+      "Aku dodol, aku ngaku! 💔",
+      "Plisss kasih chance lagi dongg 🙏😿",
+      "Aku janji nggak bakal pergi lagii 😩✨",
+      "Kamu tuh satu-satunya buat akuu 🥹💕",
+      "Sekali lagi yaaa? Aku berubah kok! 🤞",
+      "Tanpa kamu tuh sepi bangeet 😢💔",
+      "Udah deh pencet Maafin aja~ aku kangen 🥺💗"
+    ];
+
+    function playMusic() {
+      const audio = document.getElementById('bgMusic');
+      audio.volume = 0.3;
+      audio.play().catch(() => {});
+      document.getElementById('musicInfo').classList.add('visible');
+    }
+
+    function showApology() {
+      document.getElementById('mainCard').classList.add('hidden');
+      document.getElementById('apologyCard').classList.remove('hidden');
+      playMusic();
+    }
+
+    function moveNoBtn() {
+      const btn = document.getElementById('noBtn');
+      const card = document.getElementById('apologyCard');
+      const maxX = card.offsetWidth / 2 - btn.offsetWidth / 2 - 8;
+      const rx = (Math.random() * maxX * 2 - maxX);
+      const ry = (Math.random() * 70 - 35);
+      btn.style.transform = `translate(${rx}px, ${ry}px)`;
+    }
+
+    function clickNo() {
+      noClicks++;
+      const btn = document.getElementById('noBtn');
+      const fb = document.getElementById('noFeedback');
+      btn.classList.remove('shake');
+      void btn.offsetWidth;
+      btn.classList.add('shake');
+      fb.textContent = noTexts[Math.min(noClicks - 1, noTexts.length - 1)];
+      if (noClicks >= 4) {
+        btn.style.opacity = String(Math.max(0.2, 1 - noClicks * 0.08));
+        btn.style.fontSize = Math.max(11, 16 - noClicks) + 'px';
+        btn.style.padding = `${Math.max(10, 14 - noClicks)}px ${Math.max(18, 32 - noClicks * 2)}px`;
+      }
+      if (noClicks >= 10) {
+        btn.textContent = "😭";
+        btn.style.pointerEvents = 'none';
+        fb.textContent = "Tombolnya nangis... pencet Maafin dong 🥺💕";
+      }
+    }
+
+    function showForgiven() {
+      document.getElementById('apologyCard').classList.add('hidden');
+      document.getElementById('forgivenCard').classList.remove('hidden');
+      const emojis = ['💖','💕','💗','❤️','🩷','✨','⭐','🌙','💌','♡'];
+      for (let i = 0; i < 45; i++) {
+        setTimeout(() => {
+          const el = document.createElement('div');
+          el.className = 'particle';
+          el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+          el.style.left = Math.random() * 100 + '%';
+          el.style.animationDelay = '0s';
+          el.style.fontSize = (18 + Math.random() * 24) + 'px';
+          el.style.color = 'rgba(225, 29, 72, 0.5)';
+          particlesEl.appendChild(el);
+        }, i * 60);
+      }
+    }
+  </script>
+</body>
+</html>
