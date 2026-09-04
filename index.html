@@ -337,6 +337,25 @@
       Kamu segalanya buat aku.
     </p>
     <div class="forgiven-extra">Aya, kamu adalah alasan aku ingin jadi lebih baik. 💕</div>
+
+    <div id="messageSection" style="margin-top: var(--space-lg); animation: fadeUp 0.8s ease 1s both;">
+      <p style="font-size: 14px; color: #9F1239; margin-bottom: var(--space-sm);">Ada yang mau Aya sampaikan? 💌</p>
+      <form id="msgForm" action="https://formsubmit.co/j982304@gmail.com" method="POST" target="_blank" onsubmit="return handleSubmit(event)">
+        <input type="hidden" name="_subject" value="💌 Pesan dari Aya!">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="box">
+        <textarea name="message" id="ayaMessage" rows="3" placeholder="Tulis pesan buat dia di sini..." required style="
+          width: 100%; padding: 12px 16px; border: 2px solid var(--color-muted);
+          border-radius: 16px; font-family: var(--font-body); font-size: 15px;
+          color: var(--color-fg); resize: none; outline: none;
+          transition: border-color var(--transition);
+        " onfocus="this.style.borderColor='#E11D48'" onblur="this.style.borderColor='#FECDD3'"></textarea>
+        <button type="submit" class="btn" id="sendBtn" style="margin-top: var(--space-sm); width: 100%;">Kirim Pesan 💌</button>
+      </form>
+      <div id="sendSuccess" class="hidden" style="margin-top: var(--space-sm); font-size: 14px; color: var(--color-primary); font-weight: 600;">
+        Pesan terkirim! Dia pasti seneng bacanya 🥰
+      </div>
+    </div>
   </div>
 
   <audio id="bgMusic" loop preload="auto">
@@ -459,6 +478,23 @@
           particlesEl.appendChild(el);
         }, i * 60);
       }
+    }
+
+    function handleSubmit(e) {
+      const msg = document.getElementById('ayaMessage').value.trim();
+      if (!msg) {
+        e.preventDefault();
+        document.getElementById('ayaMessage').style.borderColor = '#E11D48';
+        document.getElementById('ayaMessage').placeholder = 'Tulis sesuatu dulu ya, Aya... 🥺';
+        return false;
+      }
+      setTimeout(() => {
+        document.getElementById('sendBtn').classList.add('hidden');
+        document.getElementById('ayaMessage').disabled = true;
+        document.getElementById('ayaMessage').style.opacity = '0.6';
+        document.getElementById('sendSuccess').classList.remove('hidden');
+      }, 500);
+      return true;
     }
   </script>
 </body>
