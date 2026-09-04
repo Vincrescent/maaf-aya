@@ -90,10 +90,9 @@
 
     .btn-row {
       display: flex;
-      gap: var(--space-xl);
+      gap: var(--space-md);
       justify-content: center;
       align-items: center;
-      flex-wrap: wrap;
       position: relative;
       min-height: 56px;
       padding: var(--space-sm) 0;
@@ -136,15 +135,20 @@
     .btn-no {
       background: #E5E7EB;
       color: #6B7280;
-      position: absolute;
-      transition: transform 0.15s ease, opacity 0.3s ease, font-size 0.3s ease, padding 0.3s ease;
+      transition: all 0.15s ease, opacity 0.3s ease, font-size 0.3s ease, padding 0.3s ease;
       white-space: nowrap;
       border: 2px dashed #D1D5DB;
       font-size: 14px;
       padding: 10px 24px;
+      position: relative;
     }
 
     .btn-no:hover { box-shadow: none; }
+
+    .btn-no.fleeing {
+      position: absolute;
+      z-index: 10;
+    }
 
     .hidden { display: none !important; }
 
@@ -336,7 +340,7 @@
   </div>
 
   <audio id="bgMusic" loop preload="auto">
-    <source src="https://www.soundhelix.com/data/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    <source src="snaptik_7649753614268861704_v3.mp3" type="audio/mpeg">
   </audio>
 
   <script>
@@ -383,21 +387,34 @@
 
     function moveNoBtn() {
       const btn = document.getElementById('noBtn');
+      if (!btn.classList.contains('fleeing')) {
+        btn.classList.add('fleeing');
+      }
       const card = document.getElementById('apologyCard');
-      const maxX = card.offsetWidth / 2 - btn.offsetWidth / 2 - 8;
-      const rx = (Math.random() * maxX * 2 - maxX);
-      const ry = (Math.random() * 70 - 35);
-      btn.style.transform = `translate(${rx}px, ${ry}px)`;
+      const cardRect = card.getBoundingClientRect();
+      const btnW = btn.offsetWidth;
+      const btnH = btn.offsetHeight;
+      const maxX = cardRect.width - btnW - 32;
+      const maxY = cardRect.height - btnH - 80;
+      const rx = Math.random() * maxX - maxX / 2;
+      const ry = Math.random() * maxY - maxY / 2;
+      btn.style.left = `calc(50% + ${rx}px)`;
+      btn.style.top = `${40 + Math.random() * 60}%`;
+      btn.style.transform = 'none';
     }
 
     function clickNo() {
       noClicks++;
       const btn = document.getElementById('noBtn');
       const fb = document.getElementById('noFeedback');
+      if (!btn.classList.contains('fleeing')) {
+        btn.classList.add('fleeing');
+      }
       btn.classList.remove('shake');
       void btn.offsetWidth;
       btn.classList.add('shake');
       fb.textContent = noTexts[Math.min(noClicks - 1, noTexts.length - 1)];
+      moveNoBtn();
       if (noClicks >= 4) {
         btn.style.opacity = String(Math.max(0.2, 1 - noClicks * 0.08));
         btn.style.fontSize = Math.max(11, 16 - noClicks) + 'px';
