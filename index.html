@@ -277,9 +277,9 @@
   <!-- PAGE 1: Intro -->
   <div class="card" id="mainCard">
     <div class="emoji-hero">🐻💌</div>
-    <h1>Hai Kamu...</h1>
-    <p>Ada sesuatu yang mau aku bilang.<br>Jangan pergi dulu yaa~ klik di bawah!</p>
-    <button class="btn" onclick="showApology()">Buka ya~ 💕</button>
+    <h1>Hai...</h1>
+    <p>Ada yang mau aku sampaikan ke kamu.<br>Klik di bawah ya.</p>
+    <button class="btn" onclick="showApology()">Buka 💕</button>
   </div>
 
   <!-- PAGE 2: Apology -->
@@ -292,22 +292,22 @@
       <div class="bars"><span></span><span></span><span></span><span></span><span></span></div>
     </div>
 
-    <div class="emoji-hero">🥺👉👈</div>
+    <div class="emoji-hero">🥺</div>
     <h1>Maafin Aku Ya...</h1>
     <p>
-      Aku tahu aku salah banget udah ninggalin kamu 😢<br><br>
-      Harusnya aku nggak pergi. Harusnya aku<br>
-      tetep di sini, nemenin kamu, peluk kamu 🫂<br><br>
-      Tiap hari aku nyesel. Serius! Nggak bohong!<br>
-      Kamu tuh the best, dan aku dodol<br>
-      baru sadar sekarang 😭💕<br><br>
-      Kasih aku satu kesempatan lagi ya?<br>
-      Aku janji nggak akan ngulangin lagi! 🤞✨
+      Aku tahu aku salah udah ninggalin kamu.<br><br>
+      Seharusnya aku nggak pergi. Seharusnya aku<br>
+      tetap di sini, nemenin kamu, jaga kamu.<br><br>
+      Nggak ada sehari pun aku nggak nyesel.<br>
+      Kamu selalu jadi yang terbaik buat aku,<br>
+      dan aku bodoh karena baru sadar sekarang.<br><br>
+      Kalau kamu mau kasih aku satu kesempatan lagi,<br>
+      aku janji nggak akan pernah pergi lagi. 🥹
     </p>
 
     <div class="btn-row">
       <button class="btn" onclick="showForgiven()">Maafin 💖</button>
-      <button class="btn btn-no" id="noBtn" onmouseenter="moveNoBtn()" ontouchstart="moveNoBtn()" onclick="clickNo()">nggak mau 😤</button>
+      <button class="btn btn-no" id="noBtn" onmouseenter="moveNoBtn()" ontouchstart="moveNoBtn()" onclick="clickNo()">Belum 😤</button>
     </div>
     <div class="no-feedback" id="noFeedback"></div>
   </div>
@@ -317,15 +317,22 @@
     <div class="sticker" style="top:-16px;left:-8px;">💌</div>
     <div class="sticker" style="bottom:-12px;right:-6px;animation-delay:1.5s;">💕</div>
 
-    <div class="emoji-hero">🥰✨</div>
-    <h1>YAYYY MAKASIH SAYANG!!</h1>
+    <svg id="heartSvg" viewBox="0 0 200 180" width="140" height="126" style="margin: 0 auto var(--space-md); display: block;">
+      <path id="heartPath" d="M100,170 C50,130 10,100 10,60 C10,30 35,10 60,10 C78,10 92,22 100,35 C108,22 122,10 140,10 C165,10 190,30 190,60 C190,100 150,130 100,170Z"
+        fill="none" stroke="#E11D48" stroke-width="3" stroke-linecap="round"
+        stroke-dasharray="600" stroke-dashoffset="600"/>
+      <path id="heartFill" d="M100,170 C50,130 10,100 10,60 C10,30 35,10 60,10 C78,10 92,22 100,35 C108,22 122,10 140,10 C165,10 190,30 190,60 C190,100 150,130 100,170Z"
+        fill="#E11D48" opacity="0"/>
+    </svg>
+
+    <h1>Terima Kasih...</h1>
     <p>
-      Aku sayang bangeeet sama kamu~<br>
-      Nggak akan aku sia-siain lagi deh! 🤗💗<br><br>
-      I miss you so much 🥹🎶<br>
-      Kamu segalanya buat aku ✨
+      Aku sayang banget sama kamu.<br>
+      Nggak akan aku sia-siain lagi. 💗<br><br>
+      I miss you so much. 🎶<br>
+      Kamu segalanya buat aku.
     </p>
-    <div class="forgiven-extra">kamu adalah alasan aku ingin jadi lebih baik 💕</div>
+    <div class="forgiven-extra">Kamu adalah alasan aku ingin jadi lebih baik. 💕</div>
   </div>
 
   <audio id="bgMusic" loop preload="auto">
@@ -349,16 +356,16 @@
 
     let noClicks = 0;
     const noTexts = [
-      "Hiii jangan gitu dong~ 🥺",
-      "Aku beneran nyesel tauu 😢",
-      "Ninggalin kamu itu kesalahan terbesar aku 😭",
-      "Aku dodol, aku ngaku! 💔",
-      "Plisss kasih chance lagi dongg 🙏😿",
-      "Aku janji nggak bakal pergi lagii 😩✨",
-      "Kamu tuh satu-satunya buat akuu 🥹💕",
-      "Sekali lagi yaaa? Aku berubah kok! 🤞",
-      "Tanpa kamu tuh sepi bangeet 😢💔",
-      "Udah deh pencet Maafin aja~ aku kangen 🥺💗"
+      "Yakin? 🥺",
+      "Aku beneran nyesel...",
+      "Ninggalin kamu itu kesalahan terbesar aku.",
+      "Aku tahu aku salah. 💔",
+      "Tolong kasih aku kesempatan.",
+      "Aku janji nggak akan pergi lagi.",
+      "Kamu satu-satunya yang aku mau. 🥹",
+      "Satu kali lagi ya?",
+      "Tanpa kamu rasanya hampa.",
+      "Pencet Maafin aja ya... aku butuh kamu. 💕"
     ];
 
     function playMusic() {
@@ -406,6 +413,22 @@
     function showForgiven() {
       document.getElementById('apologyCard').classList.add('hidden');
       document.getElementById('forgivenCard').classList.remove('hidden');
+
+      // Animate heart drawing
+      const path = document.getElementById('heartPath');
+      const fill = document.getElementById('heartFill');
+      const len = path.getTotalLength();
+      path.style.strokeDasharray = len;
+      path.style.strokeDashoffset = len;
+      path.style.transition = 'none';
+      void path.offsetWidth;
+      path.style.transition = 'stroke-dashoffset 2s ease-in-out';
+      path.style.strokeDashoffset = '0';
+      setTimeout(() => {
+        fill.style.transition = 'opacity 0.8s ease';
+        fill.style.opacity = '1';
+      }, 1800);
+
       const emojis = ['💖','💕','💗','❤️','🩷','✨','⭐','🌙','💌','♡'];
       for (let i = 0; i < 45; i++) {
         setTimeout(() => {
