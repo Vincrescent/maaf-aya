@@ -3,499 +3,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maafin Aku 💕</title>
+  <title>Maafin Aku, Sayang 💗</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --color-primary: #E11D48;
-      --color-on-primary: #FFFFFF;
-      --color-secondary: #FB7185;
-      --color-bg: #FFF1F2;
-      --color-fg: #881337;
-      --color-card: #FFFFFF;
-      --color-muted: #FECDD3;
-      --color-ring: #E11D48;
-      --font-heading: 'Fredoka', sans-serif;
-      --font-body: 'Nunito', sans-serif;
-      --space-xs: 8px;
-      --space-sm: 12px;
-      --space-md: 16px;
-      --space-lg: 24px;
-      --space-xl: 32px;
-      --space-2xl: 48px;
-      --radius: 24px;
-      --transition: 200ms ease;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(160deg, var(--color-bg) 0%, #FFE4E6 40%, var(--color-muted) 100%);
-      font-family: var(--font-body);
-      color: var(--color-fg);
-      overflow-x: hidden;
-      padding: var(--space-md);
-    }
-
-    .card {
-      background: var(--color-card);
-      border-radius: var(--radius);
-      padding: var(--space-2xl) var(--space-xl);
-      max-width: 480px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 8px 40px rgba(225, 29, 72, 0.1), 0 1px 3px rgba(225, 29, 72, 0.06);
-      animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-      position: relative;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .emoji-hero {
-      font-size: 72px;
-      line-height: 1;
-      margin-bottom: var(--space-md);
-      animation: gentleBounce 2.5s ease-in-out infinite;
-    }
-
-    @keyframes gentleBounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    h1 {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 28px;
-      color: var(--color-primary);
-      margin-bottom: var(--space-sm);
-      line-height: 1.3;
-    }
-
-    p {
-      font-size: 16px;
-      line-height: 1.8;
-      color: #9F1239;
-      margin-bottom: var(--space-lg);
-    }
-
-    .btn-row {
-      display: flex;
-      gap: var(--space-md);
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      min-height: 56px;
-      padding: var(--space-sm) 0;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 32px;
-      min-height: 48px;
-      min-width: 48px;
-      background: var(--color-primary);
-      color: var(--color-on-primary);
-      border: none;
-      border-radius: 50px;
-      font-family: var(--font-heading);
-      font-weight: 600;
-      font-size: 16px;
-      cursor: pointer;
-      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
-      -webkit-tap-highlight-color: transparent;
-      outline-offset: 3px;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(225, 29, 72, 0.3);
-    }
-
-    .btn:focus-visible {
-      outline: 2px solid var(--color-ring);
-      outline-offset: 3px;
-    }
-
-    .btn:active {
-      transform: translateY(0) scale(0.97);
-    }
-
-    .btn-no {
-      background: #E5E7EB;
-      color: #6B7280;
-      transition: all 0.15s ease, opacity 0.3s ease, font-size 0.3s ease, padding 0.3s ease;
-      white-space: nowrap;
-      border: 2px dashed #D1D5DB;
-      font-size: 14px;
-      padding: 10px 24px;
-      position: relative;
-    }
-
-    .btn-no:hover { box-shadow: none; }
-
-    .btn-no.fleeing {
-      position: absolute;
-      z-index: 10;
-    }
-
-    .hidden { display: none !important; }
-
-    /* Floating particles */
-    .particles {
-      position: fixed; inset: 0;
-      pointer-events: none;
-      z-index: -1;
-      overflow: hidden;
-    }
-
-    .particle {
-      position: absolute;
-      font-size: 20px;
-      opacity: 0;
-      animation: floatUp 7s linear infinite;
-    }
-
-    @keyframes floatUp {
-      0% { transform: translateY(100vh) rotate(0deg) scale(0.8); opacity: 0; }
-      8% { opacity: 0.6; }
-      85% { opacity: 0.6; }
-      100% { transform: translateY(-10vh) rotate(360deg) scale(1); opacity: 0; }
-    }
-
-    /* Shake for no button */
-    .shake { animation: shake 0.4s ease; }
-    @keyframes shake {
-      0%, 100% { transform: translateX(0) rotate(0); }
-      25% { transform: translateX(-8px) rotate(-4deg); }
-      50% { transform: translateX(8px) rotate(4deg); }
-      75% { transform: translateX(-4px) rotate(-2deg); }
-    }
-
-    .no-feedback {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--color-primary);
-      margin-top: var(--space-md);
-      min-height: 24px;
-      transition: opacity var(--transition);
-    }
-
-    /* Music visualizer */
-    .music-info {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-xs);
-      margin-bottom: var(--space-md);
-      opacity: 0;
-      transition: opacity 0.6s ease;
-    }
-
-    .music-info.visible { opacity: 1; }
-
-    .music-label {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--color-primary);
-    }
-
-    .bars {
-      display: inline-flex;
-      align-items: flex-end;
-      gap: 2px;
-      height: 18px;
-    }
-
-    .bars span {
-      display: block;
-      width: 3px;
-      border-radius: 2px;
-      background: var(--color-secondary);
-      animation: barPulse 0.9s ease-in-out infinite;
-    }
-
-    .bars span:nth-child(1) { height: 6px; animation-delay: 0s; }
-    .bars span:nth-child(2) { height: 14px; animation-delay: 0.12s; }
-    .bars span:nth-child(3) { height: 9px; animation-delay: 0.24s; }
-    .bars span:nth-child(4) { height: 12px; animation-delay: 0.36s; }
-    .bars span:nth-child(5) { height: 7px; animation-delay: 0.48s; }
-
-    @keyframes barPulse {
-      0%, 100% { transform: scaleY(1); }
-      50% { transform: scaleY(0.35); }
-    }
-
-    /* Decorative stickers */
-    .sticker {
-      position: absolute;
-      font-size: 32px;
-      pointer-events: none;
-      animation: wiggle 3s ease-in-out infinite;
-    }
-
-    @keyframes wiggle {
-      0%, 100% { transform: rotate(-4deg) scale(1); }
-      50% { transform: rotate(4deg) scale(1.05); }
-    }
-
-    .forgiven-extra {
-      margin-top: var(--space-md);
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--color-primary);
-      animation: fadeUp 0.8s ease 0.4s both;
-    }
-
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-
-    /* Small screens */
-    @media (max-width: 374px) {
-      .card { padding: var(--space-xl) var(--space-md); }
-      h1 { font-size: 24px; }
-      .emoji-hero { font-size: 56px; }
-      .btn { padding: 12px 24px; font-size: 15px; }
-    }
+    :root { --pink:#ff5c91; --hot:#ef3d78; --rose:#fff0f6; --ink:#9b315a; --white:#fffafd; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { min-height:100svh; overflow-x:clip; display:grid; place-items:center; padding:clamp(16px,4vw,24px); padding-bottom:calc(clamp(16px,4vw,24px) + env(safe-area-inset-bottom)); color:var(--ink); font-family:Nunito,sans-serif; background:linear-gradient(145deg,#ffd9e8,#fff4f8 48%,#ffc6dc); }
+    body::before,body::after { content:'♡'; position:fixed; z-index:-1; color:rgba(255,255,255,.6); font-size:160px; line-height:1; }
+    body::before { left:-35px; top:8%; transform:rotate(-15deg); } body::after { right:-35px; bottom:7%; transform:rotate(15deg); }
+    .rain { position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:0; }
+    .heart { position:absolute; top:-60px; color:var(--pink); opacity:0; font-size:var(--size); animation:fall var(--duration) linear var(--delay) infinite; filter:drop-shadow(0 3px 4px rgba(239,61,120,.12)); }
+    @keyframes fall { 0% { transform:translate3d(0,-70px,0) rotate(-15deg) scale(.7); opacity:0; } 10% { opacity:.8; } 85% { opacity:.65; } 100% { transform:translate3d(var(--drift),110vh,0) rotate(25deg) scale(1.15); opacity:0; } }
+    .card { position:relative; z-index:1; width:min(510px,100%); max-height:calc(100svh - 32px); overflow:auto; overscroll-behavior:contain; padding:clamp(28px,7vw,42px) clamp(20px,6vw,34px) clamp(26px,6vw,36px); text-align:center; border:3px solid rgba(255,255,255,.85); border-radius:clamp(28px,8vw,36px); background:rgba(255,250,253,.94); box-shadow:0 22px 55px rgba(190,61,111,.2), inset 0 0 0 1px rgba(255,92,145,.12); animation:appear .75s cubic-bezier(.2,.8,.2,1); }\n    .card.entering { animation:cardIn .55s cubic-bezier(.2,.8,.2,1) both; }\n    .card::-webkit-scrollbar { width:6px; } .card::-webkit-scrollbar-thumb { border-radius:9px; background:#ffc0d5; }\n    @keyframes cardIn { from { opacity:0; transform:translateY(18px) scale(.98); } to { opacity:1; transform:none; } }
+    @keyframes appear { from { opacity:0; transform:translateY(20px) scale(.96); } to { opacity:1; transform:none; } }
+    .hidden { display:none; }
+    .sticker { position:absolute; font-size:34px; animation:bob 2.2s ease-in-out infinite; } .sticker.one { left:18px; top:14px; } .sticker.two { right:20px; top:18px; animation-delay:.6s; }
+    @keyframes bob { 50% { transform:translateY(-7px) rotate(8deg); } }
+    .hero { margin-bottom:18px; font-size:78px; line-height:1; animation:bob 2.5s ease-in-out infinite; }
+    .step { display:inline-block; margin-bottom:12px; padding:5px 12px; color:var(--hot); border-radius:99px; background:#ffe0ec; font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    h1 { margin-bottom:14px; color:var(--hot); font-family:Fredoka,sans-serif; font-size:clamp(27px,7vw,36px); line-height:1.2; }
+    p { margin-bottom:22px; font-size:16px; line-height:1.85; }
+    .soft { color:#b45577; font-size:14px; }
+    .button-row { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+    button { min-width:44px; min-height:52px; padding:13px 24px; border:0; border-radius:99px; color:white; background:linear-gradient(135deg,var(--pink),var(--hot)); box-shadow:0 9px 20px rgba(239,61,120,.25); font-family:Fredoka,sans-serif; font-size:16px; font-weight:600; cursor:pointer; touch-action:manipulation; -webkit-tap-highlight-color:transparent; transition:transform .2s ease,box-shadow .2s ease; }
+    button:hover { transform:translateY(-3px); box-shadow:0 13px 25px rgba(239,61,120,.32); } button:active { transform:scale(.97); } button:focus-visible { outline:3px solid #ffb4cc; outline-offset:3px; }
+    .ghost { color:var(--hot); background:#ffe5ef; box-shadow:none; }
+    .photo-wrap { margin:8px auto 22px; width:min(320px,100%); padding:9px; border-radius:26px; background:linear-gradient(135deg,#ff83ad,#ffd0e0); transform:rotate(-2deg); box-shadow:0 15px 30px rgba(190,61,111,.18); }
+    .photo-wrap img { display:block; width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:19px; }
+    .signature { margin-top:18px; color:var(--hot); font-family:Fredoka,sans-serif; font-size:24px; }
+    .music { position:fixed; right:16px; bottom:calc(16px + env(safe-area-inset-bottom)); z-index:3; min-height:46px; padding:10px 16px; font-family:Nunito,sans-serif; font-size:13px; }
+    @media (max-width:420px) { body { padding:14px; padding-bottom:calc(14px + env(safe-area-inset-bottom)); } .card { max-height:calc(100svh - 28px); padding:32px 18px 26px; border-radius:30px; } .hero { font-size:65px; } p { font-size:15px; line-height:1.75; } .button-row button { width:100%; } .music { right:12px; bottom:calc(12px + env(safe-area-inset-bottom)); } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; scroll-behavior:auto!important; } }
   </style>
 </head>
 <body>
-  <div class="particles" id="particles"></div>
+  <div class="rain" id="rain"></div>
+  <button class="music ghost" id="musicButton" type="button">🎵 Putar musik</button>
 
-  <!-- PAGE 1: Intro -->
-  <div class="card" id="mainCard">
-    <div class="emoji-hero">🐻💌</div>
-    <h1>Hai Aya...</h1>
-    <p>Ada yang mau aku sampaikan ke kamu.<br>Klik di bawah ya.</p>
-    <button class="btn" onclick="showApology()">Buka 💕</button>
-  </div>
+  <main>
+    <section class="card" id="introCard">
+      <span class="sticker one">💗</span><span class="sticker two">✨</span>
+      <div class="hero">🥺💌</div>
+      <span class="step">Untuk kamu</span>
+      <h1>Ada pesan kecil buat kamu...</h1>
+      <p>Aku mau bicara dari hati. Tolong baca sampai selesai, ya?</p>
+      <button type="button" data-next="apology">Buka pesannya 💕</button>
+    </section>
 
-  <!-- PAGE 2: Apology -->
-  <div class="card hidden" id="apologyCard">
-    <div class="sticker" style="top:-16px;right:-8px;">🌙</div>
-    <div class="sticker" style="bottom:-12px;left:-6px;animation-delay:1.2s;">✨</div>
+    <section class="card hidden" id="apologyCard">
+      <span class="sticker one">🌷</span><span class="sticker two">💞</span>
+      <div class="hero">😭</div>
+      <span class="step">Yang paling penting</span>
+      <h1>Maafin aku, ya...</h1>
+      <p>Aku minta maaf karena sudah membuat kamu kecewa, sedih, atau merasa tidak dimengerti. Aku sadar ada sikap dan kata-kataku yang tidak seharusnya aku lakukan.</p>
+      <p>Aku tidak mau mencari alasan. Aku benar-benar menyesal dan ingin belajar menjadi seseorang yang lebih baik untuk kamu.</p>
+      <div class="button-row"><button type="button" data-next="hope">Baca lanjutannya 💗</button></div>
+    </section>
 
-    <div class="music-info" id="musicInfo">
-      <span class="music-label">🎵 Alex Crichton – Merry Christmas, I Miss You</span>
-      <div class="bars"><span></span><span></span><span></span><span></span><span></span></div>
-    </div>
+    <section class="card hidden" id="hopeCard">
+      <span class="sticker one">🌸</span><span class="sticker two">🫶</span>
+      <div class="hero">🫂</div>
+      <span class="step">Harapanku</span>
+      <h1>Semoga kita lebih saling mengerti</h1>
+      <p>Aku berharap kita bisa lebih terbuka, lebih sabar mendengarkan, dan lebih lembut saat menyampaikan perasaan.</p>
+      <p>Kalau ada masalah, semoga kita memilih untuk membicarakannya, bukan saling menjauh. Aku ingin kita sama-sama belajar memahami, menjaga, dan menghargai satu sama lain.</p>
+      <div class="button-row"><button type="button" data-next="final">Lihat pesan terakhir 💖</button></div>
+    </section>
 
-    <div class="emoji-hero">🥺</div>
-    <h1>Maafin Aku Ya, Aya...</h1>
-    <p>
-      Aku tahu aku salah udah ninggalin kamu.<br><br>
-      Seharusnya aku nggak pergi. Seharusnya aku<br>
-      tetap di sini, nemenin kamu, jaga kamu.<br><br>
-      Nggak ada sehari pun aku nggak nyesel, Aya.<br>
-      Kamu selalu jadi yang terbaik buat aku,<br>
-      dan aku bodoh karena baru sadar sekarang.<br><br>
-      Kalau kamu mau kasih aku satu kesempatan lagi,<br>
-      aku janji nggak akan pernah pergi lagi. 🥹
-    </p>
+    <section class="card hidden" id="finalCard">
+      <span class="sticker one">💌</span><span class="sticker two">⭐</span>
+      <div class="hero">💖</div>
+      <span class="step">Untuk selamanya</span>
+      <h1>Terima kasih sudah ada</h1>
+      <div class="photo-wrap"><img src="cewe.jpeg" alt="Foto kamu"></div>
+      <p>Terima kasih karena kamu adalah kamu. Aku akan berusaha membuktikan maafku lewat tindakan, bukan hanya kata-kata.</p>
+      <p class="soft">Aku sayang kamu, hari ini dan seterusnya.</p>
+      <div class="signature">I love you so much 💗</div>
+    </section>
+  </main>
 
-    <div class="btn-row">
-      <button class="btn" onclick="showForgiven()">Maafin 💖</button>
-      <button class="btn btn-no" id="noBtn" onmouseenter="moveNoBtn()" ontouchstart="moveNoBtn()" onclick="clickNo()">Belum 😤</button>
-    </div>
-    <div class="no-feedback" id="noFeedback"></div>
-  </div>
-
-  <!-- PAGE 3: Forgiven -->
-  <div class="card hidden" id="forgivenCard">
-    <div class="sticker" style="top:-16px;left:-8px;">💌</div>
-    <div class="sticker" style="bottom:-12px;right:-6px;animation-delay:1.5s;">💕</div>
-
-    <svg id="heartSvg" viewBox="0 0 200 180" width="140" height="126" style="margin: 0 auto var(--space-md); display: block;">
-      <path id="heartPath" d="M100,170 C50,130 10,100 10,60 C10,30 35,10 60,10 C78,10 92,22 100,35 C108,22 122,10 140,10 C165,10 190,30 190,60 C190,100 150,130 100,170Z"
-        fill="none" stroke="#E11D48" stroke-width="3" stroke-linecap="round"
-        stroke-dasharray="600" stroke-dashoffset="600"/>
-      <path id="heartFill" d="M100,170 C50,130 10,100 10,60 C10,30 35,10 60,10 C78,10 92,22 100,35 C108,22 122,10 140,10 C165,10 190,30 190,60 C190,100 150,130 100,170Z"
-        fill="#E11D48" opacity="0"/>
-    </svg>
-
-    <h1>Terima Kasih, Aya...</h1>
-    <p>
-      Aku sayang banget sama kamu, Aya.<br>
-      Nggak akan aku sia-siain lagi. 💗<br><br>
-      I miss you so much. 🎶<br>
-      Kamu segalanya buat aku.
-    </p>
-    <div class="forgiven-extra">Aya, kamu adalah alasan aku ingin jadi lebih baik. 💕</div>
-
-    <div id="messageSection" style="margin-top: var(--space-lg); animation: fadeUp 0.8s ease 1s both;">
-      <p style="font-size: 14px; color: #9F1239; margin-bottom: var(--space-sm);">Ada yang mau Aya sampaikan? 💌</p>
-      <form id="msgForm" action="https://formsubmit.co/j982304@gmail.com" method="POST" target="_blank" onsubmit="return handleSubmit(event)">
-        <input type="hidden" name="_subject" value="💌 Pesan dari Aya!">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="box">
-        <textarea name="message" id="ayaMessage" rows="3" placeholder="Tulis pesan buat dia di sini..." required style="
-          width: 100%; padding: 12px 16px; border: 2px solid var(--color-muted);
-          border-radius: 16px; font-family: var(--font-body); font-size: 15px;
-          color: var(--color-fg); resize: none; outline: none;
-          transition: border-color var(--transition);
-        " onfocus="this.style.borderColor='#E11D48'" onblur="this.style.borderColor='#FECDD3'"></textarea>
-        <button type="submit" class="btn" id="sendBtn" style="margin-top: var(--space-sm); width: 100%;">Kirim Pesan 💌</button>
-      </form>
-      <div id="sendSuccess" class="hidden" style="margin-top: var(--space-sm); font-size: 14px; color: var(--color-primary); font-weight: 600;">
-        Pesan terkirim! Dia pasti seneng bacanya 🥰
-      </div>
-    </div>
-  </div>
-
-  <audio id="bgMusic" loop preload="auto">
-    <source src="snaptik_7649753614268861704_v3.mp3" type="audio/mpeg">
-  </audio>
-
+  <audio id="music" loop preload="auto"><source src="snaptik_7649753614268861704_v3.mp3" type="audio/mpeg"></audio>
   <script>
-    // Spawn floating particles
-    const particleEmojis = ['♥', '✦', '♡', '˚', '✧'];
-    const particlesEl = document.getElementById('particles');
-    for (let i = 0; i < 20; i++) {
-      const el = document.createElement('div');
-      el.className = 'particle';
-      el.textContent = particleEmojis[Math.floor(Math.random() * particleEmojis.length)];
-      el.style.left = Math.random() * 100 + '%';
-      el.style.animationDelay = Math.random() * 7 + 's';
-      el.style.fontSize = (14 + Math.random() * 16) + 'px';
-      el.style.color = `rgba(225, 29, 72, ${0.1 + Math.random() * 0.15})`;
-      particlesEl.appendChild(el);
+    const rain = document.getElementById('rain');
+    const symbols = ['♥','♡','❤','💗','✦'];
+    for (let i = 0; i < 42; i += 1) {
+      const heart = document.createElement('span');
+      heart.className = 'heart';
+      heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      heart.style.left = `${Math.random() * 100}%`;
+      heart.style.setProperty('--size', `${14 + Math.random() * 23}px`);
+      heart.style.setProperty('--duration', `${5 + Math.random() * 6}s`);
+      heart.style.setProperty('--delay', `${Math.random() * 8}s`);
+      heart.style.setProperty('--drift', `${-70 + Math.random() * 140}px`);
+      heart.style.color = ['#ff5c91','#ef3d78','#ff9fbe','#f47aa1'][Math.floor(Math.random() * 4)];
+      rain.appendChild(heart);
     }
 
-    let noClicks = 0;
-    const noTexts = [
-      "Yakin, Aya? 🥺",
-      "Aku beneran nyesel...",
-      "Ninggalin kamu itu kesalahan terbesar aku.",
-      "Aku tahu aku salah, Aya. 💔",
-      "Tolong kasih aku kesempatan.",
-      "Aku janji nggak akan pergi lagi.",
-      "Aya, kamu satu-satunya yang aku mau. 🥹",
-      "Satu kali lagi ya?",
-      "Tanpa kamu rasanya hampa, Aya.",
-      "Pencet Maafin aja ya... aku butuh kamu, Aya. 💕"
-    ];
+    const cards = ['introCard','apologyCard','hopeCard','finalCard'];
+    document.querySelectorAll('[data-next]').forEach((button) => button.addEventListener('click', () => {
+      const next = `${button.dataset.next}Card`;
+      cards.forEach((id) => {
+        const card = document.getElementById(id);
+        const isNext = id === next;
+        card.classList.toggle('hidden', !isNext);
+        if (isNext) {
+          card.classList.remove('entering');
+          void card.offsetWidth;
+          card.classList.add('entering');
+        }
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }));
 
-    function playMusic() {
-      const audio = document.getElementById('bgMusic');
-      audio.volume = 0.3;
-      audio.play().catch(() => {});
-      document.getElementById('musicInfo').classList.add('visible');
-    }
-
-    function showApology() {
-      document.getElementById('mainCard').classList.add('hidden');
-      document.getElementById('apologyCard').classList.remove('hidden');
-      playMusic();
-    }
-
-    function moveNoBtn() {
-      const btn = document.getElementById('noBtn');
-      if (!btn.classList.contains('fleeing')) {
-        btn.classList.add('fleeing');
+    const music = document.getElementById('music');
+    const musicButton = document.getElementById('musicButton');
+    musicButton.addEventListener('click', () => {
+      if (music.paused) {
+        music.volume = .3;
+        music.play().then(() => { musicButton.textContent = '⏸ Jeda musik'; }).catch(() => {});
+      } else {
+        music.pause();
+        musicButton.textContent = '🎵 Putar musik';
       }
-      const card = document.getElementById('apologyCard');
-      const cardRect = card.getBoundingClientRect();
-      const btnW = btn.offsetWidth;
-      const btnH = btn.offsetHeight;
-      const maxX = cardRect.width - btnW - 32;
-      const maxY = cardRect.height - btnH - 80;
-      const rx = Math.random() * maxX - maxX / 2;
-      const ry = Math.random() * maxY - maxY / 2;
-      btn.style.left = `calc(50% + ${rx}px)`;
-      btn.style.top = `${40 + Math.random() * 60}%`;
-      btn.style.transform = 'none';
-    }
-
-    function clickNo() {
-      noClicks++;
-      const btn = document.getElementById('noBtn');
-      const fb = document.getElementById('noFeedback');
-      if (!btn.classList.contains('fleeing')) {
-        btn.classList.add('fleeing');
-      }
-      btn.classList.remove('shake');
-      void btn.offsetWidth;
-      btn.classList.add('shake');
-      fb.textContent = noTexts[Math.min(noClicks - 1, noTexts.length - 1)];
-      moveNoBtn();
-      if (noClicks >= 4) {
-        btn.style.opacity = String(Math.max(0.2, 1 - noClicks * 0.08));
-        btn.style.fontSize = Math.max(11, 16 - noClicks) + 'px';
-        btn.style.padding = `${Math.max(10, 14 - noClicks)}px ${Math.max(18, 32 - noClicks * 2)}px`;
-      }
-      if (noClicks >= 10) {
-        btn.textContent = "😭";
-        btn.style.pointerEvents = 'none';
-        fb.textContent = "Tombolnya nangis... pencet Maafin dong, Aya 🥺💕";
-      }
-    }
-
-    function showForgiven() {
-      document.getElementById('apologyCard').classList.add('hidden');
-      document.getElementById('forgivenCard').classList.remove('hidden');
-
-      // Animate heart drawing
-      const path = document.getElementById('heartPath');
-      const fill = document.getElementById('heartFill');
-      const len = path.getTotalLength();
-      path.style.strokeDasharray = len;
-      path.style.strokeDashoffset = len;
-      path.style.transition = 'none';
-      void path.offsetWidth;
-      path.style.transition = 'stroke-dashoffset 2s ease-in-out';
-      path.style.strokeDashoffset = '0';
-      setTimeout(() => {
-        fill.style.transition = 'opacity 0.8s ease';
-        fill.style.opacity = '1';
-      }, 1800);
-
-      const emojis = ['💖','💕','💗','❤️','🩷','✨','⭐','🌙','💌','♡'];
-      for (let i = 0; i < 45; i++) {
-        setTimeout(() => {
-          const el = document.createElement('div');
-          el.className = 'particle';
-          el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-          el.style.left = Math.random() * 100 + '%';
-          el.style.animationDelay = '0s';
-          el.style.fontSize = (18 + Math.random() * 24) + 'px';
-          el.style.color = 'rgba(225, 29, 72, 0.5)';
-          particlesEl.appendChild(el);
-        }, i * 60);
-      }
-    }
-
-    function handleSubmit(e) {
-      const msg = document.getElementById('ayaMessage').value.trim();
-      if (!msg) {
-        e.preventDefault();
-        document.getElementById('ayaMessage').style.borderColor = '#E11D48';
-        document.getElementById('ayaMessage').placeholder = 'Tulis sesuatu dulu ya, Aya... 🥺';
-        return false;
-      }
-      setTimeout(() => {
-        document.getElementById('sendBtn').classList.add('hidden');
-        document.getElementById('ayaMessage').disabled = true;
-        document.getElementById('ayaMessage').style.opacity = '0.6';
-        document.getElementById('sendSuccess').classList.remove('hidden');
-      }, 500);
-      return true;
-    }
+    });
   </script>
 </body>
 </html>
